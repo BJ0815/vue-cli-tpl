@@ -1,3 +1,5 @@
+const defaultTemp = 'v1'
+
 module.exports = (api, options) => {
   api.extendPackage({
     scripts: {
@@ -20,7 +22,9 @@ module.exports = (api, options) => {
       "eslint-plugin-vue": "^5.0.0",
       "lint-staged": "^9.4.2",
       "prerender-spa-plugin": "^3.4.0",
-      "vue-template-compiler": "^2.6.10"
+      "vue-template-compiler": "^2.6.10",
+      "node-sass": "^4.13.1",
+      "sass-loader": "^8.0.2"
     },
     gitHooks: {
       "pre-commit": "lint-staged"
@@ -29,5 +33,22 @@ module.exports = (api, options) => {
       "*.{js,vue}": ["vue-cli-service lint", "git add"]
     }
   });
-  api.render("./template");
+
+  if (options.lodash) {
+    api.extendPackage({
+      'dependencies': {
+        'lodash': '^4.17.11',
+      }
+    })
+  }
+
+  if (options['vue-echarts']) {
+    api.extendPackage({
+      'dependencies': {
+        'vue-echarts': '^4.0.1',
+      }
+    })
+  }
+
+  api.render(`./template/${defaultTemp}`);
 };

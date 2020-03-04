@@ -1,11 +1,11 @@
 const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
-const BASE_URL = '/202002_toeicTalent'
 
+const routes = ['/index.html', '/about.html']
 
 module.exports = {
-  publicPath: BASE_URL,
-  outputDir: `dist${BASE_URL}`,
+  publicPath: './',
+  outputDir: path.join(__dirname, `dist`),
   productionSourceMap: false,
   devServer: {
     overlay: {
@@ -20,13 +20,13 @@ module.exports = {
     return {
       plugins: [
         new PrerenderSPAPlugin({
-          staticDir: path.join(__dirname, `dist${BASE_URL}`),
-          outputDir: path.join(__dirname, `dist${BASE_URL}`),
-          indexPath: path.join(__dirname, 'dist', `${BASE_URL}/index.html`),
-          routes: ['/index.html'],
+          staticDir: path.join(__dirname, `dist`),
+          outputDir: path.join(__dirname, `dist`),
+          indexPath: path.join(__dirname, 'dist', `/index.html`),
+          routes,
           postProcess(renderedRoute) {
             if (renderedRoute.route.endsWith('.html')) {
-              renderedRoute.outputPath = path.join(__dirname, `dist${BASE_URL}`, renderedRoute.route)
+              renderedRoute.outputPath = path.join(__dirname, `dist`, renderedRoute.route)
             }
             return renderedRoute
           }

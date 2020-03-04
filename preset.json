@@ -1,5 +1,3 @@
 {
-  "useConfigFiles": true,
-  "router": true,
-  "routerHistoryMode": true
+  "useConfigFiles": true
 }
