@@ -8,23 +8,30 @@ module.exports = (api, options) => {
       lint: "vue-cli-service lint"
     },
     dependencies: {
-      "core-js": "^3.3.2",
-      vue: "^2.6.10",
-      "vue-router": "^3.0.3"
+      "axios": "^0.19.2",
+      "core-js": "^3.6.4",
+      "vue": "^2.6.11",
+      "vue-router": "^3.1.5"
     },
     devDependencies: {
-      "@vue/cli-plugin-babel": "^4.0.0",
-      "@vue/cli-plugin-eslint": "^4.0.0",
-      "@vue/cli-service": "^4.0.0",
-      "@vue/eslint-config-standard": "^4.0.0",
+      "@vue/cli-plugin-babel": "~4.2.0",
+      "@vue/cli-plugin-eslint": "~4.2.0",
+      "@vue/cli-plugin-router": "~4.2.0",
+      "@vue/cli-plugin-vuex": "~4.2.0",
+      "@vue/cli-service": "~4.2.0",
+      "@vue/eslint-config-standard": "^5.1.0",
       "babel-eslint": "^10.0.3",
-      eslint: "^5.16.0",
-      "eslint-plugin-vue": "^5.0.0",
+      "eslint": "^6.7.2",
+      "eslint-plugin-import": "^2.20.1",
+      "eslint-plugin-node": "^11.0.0",
+      "eslint-plugin-promise": "^4.2.1",
+      "eslint-plugin-standard": "^4.0.0",
+      "eslint-plugin-vue": "^6.1.2",
+      "node-sass": "^4.12.0",
+      "sass-loader": "^8.0.2",
+      "vue-template-compiler": "^2.6.11",
       "lint-staged": "^9.4.2",
-      "prerender-spa-plugin": "^3.4.0",
-      "vue-template-compiler": "^2.6.10",
-      "node-sass": "^4.13.1",
-      "sass-loader": "^8.0.2"
+      "prerender-spa-plugin": "^3.4.0"
     },
     gitHooks: {
       "pre-commit": "lint-staged"
